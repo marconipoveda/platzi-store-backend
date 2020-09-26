@@ -1,0 +1,25 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - '14'
+git:
+  depth: 3
+script:
+  - yarn test
+notifications:
+  email:
+    recipients:
+      - me@marconipoveda.info
+    on_success: always
+    on_failure: always
+deploy:
+  provider: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: 039483fc-fa98-40ea-9250-c9adf6f08426
+  app: platzi-store-backend-mp
+  on:
+    repo: marconipoveda/platzi-store-backend
